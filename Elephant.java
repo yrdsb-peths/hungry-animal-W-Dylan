@@ -11,7 +11,7 @@ public class Elephant extends Actor{
      * Act - do whatever the Elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage elephantRight = new GreenfootImage("apple.png");
+    GreenfootImage elephantRight = new GreenfootImage("elephant_idle.png");
     GreenfootImage elephantLeft = new GreenfootImage("elephant_idle_left.png");
         
     public void act(){ 
@@ -25,6 +25,8 @@ public class Elephant extends Actor{
     
     // Constructor
     public Elephant(){
+        setImage(elephantRight);
+        elephantLeft.mirrorVertically();
     }
     
     public void moveRight(){
