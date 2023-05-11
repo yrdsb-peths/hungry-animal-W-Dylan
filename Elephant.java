@@ -21,6 +21,10 @@ public class Elephant extends Actor{
         else if(Greenfoot.isKeyDown("left")){
             moveLeft();
         }
+        
+        if(isTouching(Apple.class)){
+            eat();
+        }
     }
     
     // Constructor
@@ -39,5 +43,11 @@ public class Elephant extends Actor{
         setImage(elephantLeft);
         setRotation(180);
         move(3);
+    }
+    
+    public void eat(){
+        removeTouching(Apple.class);
+        MyWorld world = (MyWorld) getWorld();
+        world.placeApple();
     }
 }
