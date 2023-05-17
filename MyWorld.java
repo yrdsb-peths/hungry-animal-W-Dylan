@@ -18,6 +18,11 @@ public class MyWorld extends World
         super(600, 400, 1);
         addObject(new Elephant(), 0, 300);
         placeApple();
+        
+        // Create a label
+        Label scoreLabel = new Label(0, 50);
+        addObject(scoreLabel, 50, 50);
+        
     }
     
     public void placeApple(){
