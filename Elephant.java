@@ -49,5 +49,6 @@ public class Elephant extends Actor{
         removeTouching(Apple.class);
         MyWorld world = (MyWorld) getWorld();
         world.placeApple();
+        world.updateScore();
     }
 }
