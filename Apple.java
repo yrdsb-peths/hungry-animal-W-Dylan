@@ -17,9 +17,16 @@ public class Apple extends Actor
     public void act()
     {
         move(2);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight()){
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
     
     public Apple(){
+        apple.scale(40, 40);
         apple.rotate(-90);
         setImage(apple);
         setRotation(90);

@@ -36,18 +36,19 @@ public class Elephant extends Actor{
     public void moveRight(){
         setImage(elephantRight);
         setRotation(0);
-        move(3);
+        move(4);
     }
     
     public void moveLeft(){
         setImage(elephantLeft);
         setRotation(180);
-        move(3);
+        move(4);
     }
     
     public void eat(){
         removeTouching(Apple.class);
         MyWorld world = (MyWorld) getWorld();
         world.placeApple();
+        world.updateScore();
     }
 }
