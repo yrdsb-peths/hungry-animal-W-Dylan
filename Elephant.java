@@ -14,7 +14,7 @@ public class Elephant extends Actor{
     GreenfootImage elephantRight = new GreenfootImage("elephant_idle.png");
     GreenfootImage elephantLeft = new GreenfootImage("elephant_idle_left.png");
         
-    public void act(){ 
+    public void act(){
         if(Greenfoot.isKeyDown("right")){
             moveRight();
         }
