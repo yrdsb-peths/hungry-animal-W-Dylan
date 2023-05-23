@@ -13,6 +13,7 @@ public class Elephant extends Actor{
      */
     GreenfootImage elephantRight = new GreenfootImage("elephant_idle.png");
     GreenfootImage elephantLeft = new GreenfootImage("elephant_idle.png");
+    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
         
     public void act(){
         if(Greenfoot.isKeyDown("right")){
@@ -24,6 +25,7 @@ public class Elephant extends Actor{
         
         if(isTouching(Apple.class)){
             eat();
+            elephantSound.play();
         }
     }
     
