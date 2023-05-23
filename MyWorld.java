@@ -19,6 +19,9 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
+        setBackground(new GreenfootImage("Savanna.jpg"));
+        
+        // Adds objects
         addObject(new Elephant(), 0, 300);
         placeApple();
         
