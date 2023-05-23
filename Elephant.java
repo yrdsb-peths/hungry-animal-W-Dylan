@@ -12,7 +12,7 @@ public class Elephant extends Actor{
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootImage elephantRight = new GreenfootImage("elephant_idle.png");
-    GreenfootImage elephantLeft = new GreenfootImage("elephant_idle_left.png");
+    GreenfootImage elephantLeft = new GreenfootImage("elephant_idle.png");
         
     public void act(){
         if(Greenfoot.isKeyDown("right")){
