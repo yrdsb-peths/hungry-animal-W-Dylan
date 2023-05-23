@@ -11,11 +11,10 @@ public class Elephant extends Actor{
      * Act - do whatever the Elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage elephantRight = new GreenfootImage("elephant_idle.png");
-    GreenfootImage elephantLeft = new GreenfootImage("elephant_idle.png");
+    GreenfootImage[] elephantIdle = new GreenfootImage[8];
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
         
-    public void act(){
+    public void act(){ 
         if(Greenfoot.isKeyDown("right")){
             moveRight();
         }
@@ -27,22 +26,30 @@ public class Elephant extends Actor{
             eat();
             elephantSound.play();
         }
+        animateElephant();
     }
     
     // Constructor
     public Elephant(){
-        setImage(elephantRight);
-        elephantLeft.mirrorVertically();
+        for(int i = 0; i < elephantIdle.length; i++){
+            elephantIdle[i] = new GreenfootImage("elephant_idle/idle" + i + ".png");
+        }
+        setImage(elephantIdle[0]);
+
+    }
+    
+    int animationIndex = 0;
+    public void animateElephant(){
+        setImage(elephantIdle[animationIndex]);
+        animationIndex = (animationIndex + 1) % elephantIdle.length;
     }
     
     public void moveRight(){
-        setImage(elephantRight);
         setRotation(0);
         move(4);
     }
     
     public void moveLeft(){
-        setImage(elephantLeft);
         setRotation(180);
         move(4);
     }
