@@ -15,6 +15,7 @@ public class Elephant extends Actor{
     GreenfootImage[] elephantIdleLeft = new GreenfootImage[8];
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
         
     public void act(){ 
         if(Greenfoot.isKeyDown("right")){
@@ -32,29 +33,33 @@ public class Elephant extends Actor{
     }
     
     // Constructor
-    public Elephant(){
+    public Elephant(){        
         for(int i = 0; i < elephantIdleRight.length; i++){
             elephantIdleRight[i] = new GreenfootImage("elephant_idle/idle" + i + ".png");
             elephantIdleRight[i].scale(100, 100);
         }
         setImage(elephantIdleRight[0]);
         
-        for(int i = 0; i < elephantIdleRight.length; i++){
+        for(int i = 0; i < elephantIdleLeft.length; i++){
             elephantIdleLeft[i] = new GreenfootImage("elephant_idle/idle" + i + ".png");
             elephantIdleLeft[i].scale(100, 100);
             elephantIdleLeft[i].mirrorVertically();
         }
+        animationTimer.mark();
     }
     
     int animationIndex = 0;
     public void animateElephant(){
-        if(facing.equals("right")){
-            setImage(elephantIdleRight[animationIndex]);
-            animationIndex = (animationIndex + 1) % elephantIdleRight.length;
-        }
-        else{
-            setImage(elephantIdleLeft[animationIndex]);
-            animationIndex = (animationIndex + 1) % elephantIdleLeft.length;
+        if(animationTimer.millisElapsed() > 150){
+            if(facing.equals("right")){
+                setImage(elephantIdleRight[animationIndex]);
+                animationIndex = (animationIndex + 1) % elephantIdleRight.length;
+            }
+            else{
+                setImage(elephantIdleLeft[animationIndex]);
+                animationIndex = (animationIndex + 1) % elephantIdleLeft.length;
+            }
+            animationTimer.mark();
         }
     }
     
