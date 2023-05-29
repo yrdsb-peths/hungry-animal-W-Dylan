@@ -25,7 +25,7 @@ public class Elephant extends Actor{
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act(){ 
-        // Moves elephant based on user input
+        // Moves elephant based on user input while the game is running
         if(Greenfoot.isKeyDown("right")){
             moveRight();
         }
@@ -72,7 +72,9 @@ public class Elephant extends Actor{
      * Method to animate the elephant
      */
     public void animateElephant(){
+        // Waits 150 milliseconds before animating next image
         if(animationTimer.millisElapsed() > 150){
+            // Checks which direction elephant is facing
             if(facing.equals("right")){
                 setImage(elephantIdleRight[animationIndex]);
                 animationIndex = (animationIndex + 1) % elephantIdleRight.length;

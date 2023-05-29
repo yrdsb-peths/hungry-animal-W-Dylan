@@ -19,6 +19,10 @@ public class Apple extends Actor
     {
         move(2);
         
+        /*
+         * Creates a copy of MyWorld and ends the game if the position 
+         * of the apple is below it
+         */
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()){
             world.gameOver();
