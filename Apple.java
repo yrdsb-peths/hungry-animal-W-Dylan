@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Apple here.
+ * An object which the player wants their sprite to 'eat'
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dylan Windsor 
+ * @version May 29th
  */
 public class Apple extends Actor
 {
@@ -13,11 +13,16 @@ public class Apple extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    // Assigns an image to this object
     GreenfootImage apple = new GreenfootImage("apple.png");
     public void act()
     {
         move(2);
         
+        /*
+         * Creates a copy of MyWorld and ends the game if the position 
+         * of the apple is below it
+         */
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()){
             world.gameOver();
@@ -25,6 +30,9 @@ public class Apple extends Actor
         }
     }
     
+    /**
+     * Constructor for Apple class
+     */
     public Apple(){
         apple.scale(40, 40);
         apple.rotate(-90);
