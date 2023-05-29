@@ -37,6 +37,7 @@ public class MyWorld extends World
     public void gameOver(){
         Label endGame = new Label("Game Over", 100);
         addObject(endGame, 300, 200);
+        Greenfoot.stop();
     }
     
     /**
