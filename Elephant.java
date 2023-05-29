@@ -42,8 +42,8 @@ public class Elephant extends Actor{
         
         for(int i = 0; i < elephantIdleLeft.length; i++){
             elephantIdleLeft[i] = new GreenfootImage("elephant_idle/idle" + i + ".png");
+            elephantIdleLeft[i].mirrorHorizontally();
             elephantIdleLeft[i].scale(100, 100);
-            elephantIdleLeft[i].mirrorVertically();
         }
         animationTimer.mark();
     }
@@ -71,8 +71,7 @@ public class Elephant extends Actor{
     
     public void moveLeft(){
         facing = "left";
-        setRotation(180);
-        move(4);
+        move(-4);
     }
     
     public void eat(){
