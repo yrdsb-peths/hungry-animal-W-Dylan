@@ -12,7 +12,6 @@ public class TitleScreen extends World
     Label subLabel = new Label("Press \"Enter\" to start", 25);
     /**
      * Constructor for objects of class TitleScreen.
-     * 
      */
     public TitleScreen()
     {    
@@ -23,6 +22,10 @@ public class TitleScreen extends World
         addObject(subLabel, 300, 230);
     }
     
+    /*
+     * Waits until user presses enter
+     * to start the game
+     */
     public void act(){
         if(Greenfoot.isKeyDown("enter")){
             Greenfoot.setWorld(new MyWorld());
