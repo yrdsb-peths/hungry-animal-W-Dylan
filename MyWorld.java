@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * The main world in which the game shall be played in
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dylan Windsor 
+ * @version May 29th
  */
 public class MyWorld extends World
 {   
+    // Scoring variablea=s
     private int score = 0;
     Label scoreLabel = new Label(0, 50);
     
@@ -30,16 +31,25 @@ public class MyWorld extends World
         
     }
     
+    /*
+     * Method to end the game
+     */
     public void gameOver(){
         Label endGame = new Label("Game Over", 100);
         addObject(endGame, 300, 200);
     }
     
+    /**
+     * Method that places apple randomly around the world
+     */
     public void placeApple(){
         int x = Greenfoot.getRandomNumber(600);
         addObject(new Apple(), x, 0);
     }
     
+    /*
+     * Method that increases score label by 1
+     */
     public void updateScore(){
         score++;
         scoreLabel.setValue(score);
