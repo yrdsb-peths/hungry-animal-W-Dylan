@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Apple extends Actor
 {
+    public static String classIn;
     /**
      * Act - do whatever the Apple wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,10 +24,18 @@ public class Apple extends Actor
          * Creates a copy of MyWorld and ends the game if the position 
          * of the apple is below it
          */
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight()){
-            world.gameOver();
-            world.removeObject(this);
+        if(classIn.equals("MyWorld")){
+            MyWorld world = (MyWorld) getWorld();
+            if(getY() >= world.getHeight()){
+                world.gameOver();
+                world.removeObject(this);
+            }
+        }
+        else if(classIn.equals("TutorialScreen")){
+            TutorialScreen world = (TutorialScreen) getWorld();
+            if(getY() >= world.getHeight()){
+                world.removeObject(this);
+            }
         }
     }
     

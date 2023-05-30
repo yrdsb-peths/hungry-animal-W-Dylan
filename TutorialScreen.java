@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TutorialScreen extends World
 {
+    int appleMade = 0;
     Label instructions = new Label("Use the arrow keys to move left and right", 25);
     boolean pressLeft = false;
     boolean pressRight = false;
@@ -33,7 +34,17 @@ public class TutorialScreen extends World
             pressLeft = true;
         }
         if(pressRight && pressLeft && (timer.millisElapsed() >= 1000)){
-            Greenfoot.setWorld(new SecondTutorial()); 
+            Apple apple = new Apple();
+            apple.classIn = "TutorialScreen";
+            if(appleMade < 1){
+                addObject(apple, 300, 0);
+                appleMade++;
+            }
         }
+    }
+    
+    public void ateApple(){
+        int x = Greenfoot.getRandomNumber(600);
+        addObject(new Apple(), x, 0);
     }
 }
