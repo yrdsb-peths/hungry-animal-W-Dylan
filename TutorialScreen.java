@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TutorialScreen extends World
 {
-    // Variable
+    // Variables for label, beginning sequences & timers
     Label instructions = new Label("Use the arrow keys to move left and right", 25);
     Label skip = new Label("Press enter to skip", 15);
     boolean pressLeft = false;
@@ -23,15 +23,22 @@ public class TutorialScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
         
+        // Placing the objects
         addObject(instructions, 300, 200);
         addObject(skip, 535, 15);
         addObject(new Elephant(), 0, 300);
     }
     
     public void act(){
+        // Condition to skip the tutorial
         if(Greenfoot.isKeyDown("enter")){
             Greenfoot.setWorld(new MyWorld());
         }
+        
+        /*
+         * First stage: teaching how to move
+         * Upon completion code will not repeat and will start next stage
+         */
         if(beginningSequence){
             if(Greenfoot.isKeyDown("right")){
                 pressRight = true;
@@ -52,6 +59,10 @@ public class TutorialScreen extends World
         }
     }
     
+    /**
+     * Second stage: teaching player how to eat
+     * Will repeat until player presses enter
+     */
     public void ateApple(boolean isEaten){
         if(isEaten){
             removeObject(instructions);
