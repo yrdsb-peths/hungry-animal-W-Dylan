@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TutorialScreen here.
+ * World designed to teach the user how to play the game
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dylan Windsor 
+ * @version May 29th
  */
 public class TutorialScreen extends World
 {
-    int appleMade = 0;
+    // Variable
     Label instructions = new Label("Use the arrow keys to move left and right", 25);
     Label skip = new Label("Press enter to skip", 15);
     boolean pressLeft = false;
@@ -47,10 +47,7 @@ public class TutorialScreen extends World
                 addObject(instructions, 300, 200);
                 Apple apple = new Apple();
                 apple.classIn = "TutorialScreen";
-                if(appleMade < 1){
-                    addObject(apple, 300, 0);
-                    appleMade++;
-                }
+                addObject(apple, 300, 0);
             }
         }
     }
