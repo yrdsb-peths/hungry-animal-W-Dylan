@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Apple extends Actor
 {
+    // Variable to change the behaviour based on which world it's in
     public static String classIn;
     /**
      * Act - do whatever the Apple wants to do. This method is called whenever
@@ -35,6 +36,7 @@ public class Apple extends Actor
             TutorialScreen world = (TutorialScreen) getWorld();
             if(getY() >= world.getHeight()){
                 world.removeObject(this);
+                world.ateApple(false);
             }
         }
     }

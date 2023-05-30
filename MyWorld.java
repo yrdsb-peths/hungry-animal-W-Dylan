@@ -45,7 +45,9 @@ public class MyWorld extends World
      */
     public void placeApple(){
         int x = Greenfoot.getRandomNumber(600);
-        addObject(new Apple(), x, 0);
+        Apple apple = new Apple();
+        apple.classIn = "MyWorld";
+        addObject(apple, x, 0);
     }
     
     /*

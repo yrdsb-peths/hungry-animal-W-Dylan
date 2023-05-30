@@ -117,7 +117,7 @@ public class Elephant extends Actor{
         }
         else if(Apple.classIn.equals("TutorialScreen")){
             TutorialScreen tutorial = (TutorialScreen) getWorld();
-            tutorial.ateApple();
+            tutorial.ateApple(true);
         }
     }
 }
